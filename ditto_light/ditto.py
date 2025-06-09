@@ -11,7 +11,8 @@ import argparse
 
 from .dataset import DittoDataset
 from torch.utils import data
-from transformers import AutoModel, AdamW, get_linear_schedule_with_warmup
+from transformers import AutoModel, get_linear_schedule_with_warmup
+from transformers.optimization import AdamW
 from tensorboardX import SummaryWriter
 from apex import amp
 
