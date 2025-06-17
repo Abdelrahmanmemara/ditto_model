@@ -134,9 +134,9 @@ def train_step(train_iter, model, optimizer, scheduler, hp):
 
         loss = criterion(prediction, y.to(model.device))
 
-        # if hp.fp16:
-        #     with amp.scale_loss(loss, optimizer) as scaled_loss:
-        #         scaled_loss.backward()
+        if hp.fp16:
+            with amp.scale_loss(loss, optimizer) as scaled_loss:
+                scaled_loss.backward()
         else:
             loss.backward()
         optimizer.step()
